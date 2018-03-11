@@ -1,0 +1,38 @@
+<div class="container text">
+  <img class='center' src="/../public/assets/images/burger-on.jpg" alt="keep calm and burger on">
+
+  <h3>What's on your burger wish list?</h3>
+
+  <form id='add-burger' class="text">
+    <div class="form-group">
+      <input type="text" class="form-control" id="burger" aria-describedby="burger" placeholder="Add a burger">
+    </div>
+    
+    <button type="submit" class="btn btn-primary submit">Submit</button>
+  </form>
+</div>
+
+<div class="container text">
+  <div class="text list">
+    <p>Burgers You Crave</p>
+    <ul>
+      {{#each burgers}}
+        {{#if crave}}
+          {{> burgers/burger-button crave=false}}
+        {{/if}}
+      {{/each}}      
+    </ul>
+  </div>
+  <div class="text list">
+    <p>Burgers You've Devoured</p>
+    <ul>
+      {{#each burgers}}
+        {{#unless crave}}
+          {{> burgers/burger-empty}}
+        {{/unless}}      
+      {{/each}}
+    </ul>
+  </div>
+</div>
+
+
